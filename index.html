@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💐 Chúc Mẹ & Em Gái 20-10 Vui Vẻ 💐</title>
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+    background: radial-gradient(circle at center, #000000, #070014, #000);
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+  }
+
+  /* Sao lấp lánh */
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: twinkle 3s infinite ease-in-out;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.1; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+  }
+
+  /* Trái tim */
+  .heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff0040;
+    transform: rotate(45deg);
+    box-shadow: 0 0 20px rgba(255, 60, 150, 0.8);
+    animation: floatHeart 8s ease-in infinite;
+  }
+
+  .heart::before, .heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff0040;
+    border-radius: 50%;
+  }
+
+  .heart::before { top: -10px; left: 0; }
+  .heart::after { left: -10px; top: 0; }
+
+  @keyframes floatHeart {
+    0% {
+      transform: translateY(100vh) rotate(45deg) scale(0.5);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-10vh) rotate(45deg) scale(1.2);
+      opacity: 0;
+    }
+  }
+
+  /* Chữ yêu thương */
+  .message {
+    position: absolute;
+    color: #ff85c1;
+    font-size: 1.4em;
+    font-weight: 600;
+    text-shadow: 0 0 15px #ff66b2, 0 0 30px #ff1493;
+    animation: floatText 12s linear infinite;
+    white-space: nowrap;
+  }
+
+  @keyframes floatText {
+    0% {
+      transform: translateY(100vh) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-10vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  /* Trái tim to giữa quay */
+  .big-heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 160px;
+    height: 160px;
+    background: #ff1f6b;
+    transform: translate(-50%, -50%) rotate(45deg);
+    animation: spin 6s linear infinite;
+    box-shadow: 0 0 60px rgba(255, 0, 100, 0.8);
+    z-index: 1;
+  }
+
+  .big-heart::before,
+  .big-heart::after {
+    content: "";
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    background: #ff1f6b;
+    border-radius: 50%;
+  }
+
+  .big-heart::before { top: -80px; left: 0; }
+  .big-heart::after { left: -80px; top: 0; }
+
+  @keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+    50% { transform: translate(-50%, -50%) rotate(180deg) scale(1.1); }
+    100% { transform: translate(-50%, -50%) rotate(360deg) scale(1); }
+  }
+
+  ::-webkit-scrollbar { display: none; }
+  audio { display: none; }
+</style>
+</head>
+<body>
+
+<div class="big-heart"></div>
+
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2023/03/16/audio_f8d2a1e5fa.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  // Lời chúc dành cho mẹ và em gái 💖
+  const messages = [
+    "Chúc mẹ và em gái 20/10 thật hạnh phúc 💐",
+    "Cảm ơn mẹ vì tất cả yêu thương 💖",
+    "Mẹ là người phụ nữ tuyệt vời nhất trên đời 🌷",
+    "Em gái luôn xinh đẹp và vui tươi nhé 🌸",
+    "20/10 – Ngày đặc biệt của hai người con yêu thương 💝",
+    "Chúc mẹ thật nhiều sức khỏe và nụ cười 💞",
+    "Chúc em gái luôn học giỏi và hạnh phúc 💫",
+    "Cảm ơn mẹ đã luôn hy sinh thầm lặng ❤️",
+    "Mẹ là bông hoa đẹp nhất trong lòng con 🌹",
+    "Em gái là ánh nắng nhỏ làm nhà mình ấm áp ☀️",
+    "Chúc mẹ và em gái luôn rạng rỡ, yêu đời 💐",
+    "Con yêu mẹ nhiều lắm 💗",
+    "Chúc mẹ và em gái ngày 20/10 tràn ngập niềm vui 🎀",
+    "Em gái của anh, luôn mỉm cười nhé 🌼",
+    "Mẹ và em là hai người con yêu quý nhất 💞"
+  ];
+
+  // Tạo sao
+  for (let i = 0; i < 80; i++) {
+    const star = document.createElement("div");
+    star.className = "star";
+    star.style.left = Math.random() * 100 + "vw";
+    star.style.top = Math.random() * 100 + "vh";
+    star.style.animationDuration = 2 + Math.random() * 4 + "s";
+    document.body.appendChild(star);
+  }
+
+  // Tạo trái tim bay
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = 5 + Math.random() * 5 + "s";
+    heart.style.background = `hsl(${Math.random() * 30 + 330}, 100%, 60%)`;
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 9000);
+  }
+
+  // Tạo chữ bay
+  function createMessage() {
+    const msg = document.createElement("div");
+    msg.className = "message";
+    msg.textContent = messages[Math.floor(Math.random() * messages.length)];
+    msg.style.left = Math.random() * 80 + "vw";
+    msg.style.animationDuration = 10 + Math.random() * 5 + "s";
+    msg.style.fontSize = 1 + Math.random() * 0.5 + "em";
+    msg.style.color = ["#ff80c0","#ff66b2","#ff99cc","#ff4da6","#ffb6c1"][Math.floor(Math.random() * 5)];
+    document.body.appendChild(msg);
+    setTimeout(() => msg.remove(), 14000);
+  }
+
+  // Lặp hiệu ứng
+  setInterval(createHeart, 200);
+  setInterval(createMessage, 1000);
+</script>
+
+</body>
+</html>
